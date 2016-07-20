@@ -1,0 +1,39 @@
+{% extends 'common/base.html' %}
+{% block page_title%} Home {% endblock %}
+{% block extra-navbar %}
+{% endblock %}
+{% block content %}
+<!-- <div class="side-nav fixed blue">
+</div> -->
+<div class="col s12 m8 l6 offset-m2 offset-l3">
+	<div class="card-panel blue lighten-3">
+		<h3>Welcome, {{ user.username }}</h3>
+		<form action="{% url 'logout' %}">
+			<button type="submit" id ="logout-btn" name="logout" class="btn waves-effect waves-light">LogOut</button>
+			<a class="right cyan-text text-darken-4 bold" href="{% url 'add_question' %}">Add Question</a>
+		</form>
+		{% for q in all_q_list %}
+		<div class="card-panel white hoverable">
+			<div class="row">
+				<div class="col l1">
+					<i class="fa fa-user fa-2x center"></i>
+				</div>
+				<div class="col l11">
+					<h6>
+						<a href="{% url 'print_question' id=q.id %}">{{ q }}</a>
+						{% if q.created_by == user %}
+						<a href=""><i class="fa fa-pencil-square-o right"></i></a>
+						{% endif %}
+					</h6>
+					<div class = "divider"></div>
+					<h22 class = "grey-text">@{{ q.created_by.username }}</h22>
+					<h22 class = "grey-text right">{{ q.created_on }}</h22>
+					<p class="">{{ q.text }}</p>
+					<a class = "right" href="{% url 'add_answer' q_id=q.id %}">Add Answer</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

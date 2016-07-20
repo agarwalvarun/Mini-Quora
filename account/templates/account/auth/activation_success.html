@@ -1,0 +1,9 @@
+{% extends 'common/base.html' %}
+{% block page_title %} Successful Activativation
+{% endblock %}
+{% block content %}
+Hello, {{ u.username }}<br><br>
+Yout Account has been Successfully Activated.<br><br>
+Click on the link to login.
+<a href="{% url 'login' %}">Login</a>
+{% endblock %}

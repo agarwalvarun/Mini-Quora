@@ -1,0 +1,40 @@
+{% extends 'common/base.html' %}
+{% block page_title%} Question 
+{% endblock %}
+{% block content %}
+<div class="col s12 m8 l6 offset-m2 offset-l3">
+	<div class="card-panel blue lighten-3">
+		<div class="row">
+			<div class="col l1">
+				<i class="fa fa-user fa-2x center"></i>
+			</div>
+			<div class="col l11">
+				<h3>{{ q }}</h3>
+				<div class = "divider"></div>
+				<h22 class = "grey-text">@{{ q.created_by.username }}</h22>
+				<h22 class = "grey-text right">{{ q.created_on }}</h22>
+				<p class="">{{ q.text }}</p>
+			</div>
+		</div>
+		<a class = "right" href="{% url 'add_answer' q_id=q.id %}">Add Answer</a>
+		<h5>Answers</h5>
+		{% for ans in q_a %}
+		<div class="card-panel white">
+			<div class="row">
+				<div class="col l1">
+					<i class="fa fa-user fa-2x center"></i>
+				</div>
+				<div class="col l11">
+					<h22 class = "grey-text">@{{ ans.created_by.username }}</h22>
+					<h22 class = "grey-text right">{{ ans.created_on }}</h22>
+					<div class = "divider"></div>
+				</div>
+				<p>{{ ans.text }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}	
+
+

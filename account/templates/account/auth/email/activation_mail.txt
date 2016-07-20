@@ -1,0 +1,11 @@
+Hello {{ u.username }}
+
+Thank You for Signing Up with us.
+
+Please click on the link below or copy the URL in your address bar to activate your account.
+
+http://127.0.0.1:8000{% url 'activate_account' id=u.id otp=otp %}
+
+Thanks,
+
+Varun Agarwal 

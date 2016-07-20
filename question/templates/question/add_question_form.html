@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+{% load material_form %}
+{% block page_title%} Add Question 
+{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col s12 m8 l6 offset-m2 offset-l3">
+		<div class="card-panel blue lighten-4">
+			<h5> Add Question </h5>
+			<form action="{% url 'add_question' %}" method="POST">
+				{% csrf_token %}
+				{{ error }}
+				{% form form=f %}{% endform %}
+				<div class="row">
+					<div class="col s12">
+						<button type="submit" id ="create-btn" name="create" class="btn waves-effect waves-light left">Create</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% block page_title %} All Questions 
+{% endblock %}
+{% block content %}
+<ul>
+	{% for q in q_list %}
+	<li>{{ q }}</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+	
